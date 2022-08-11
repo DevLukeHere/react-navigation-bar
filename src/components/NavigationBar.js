@@ -1,16 +1,5 @@
 import React, { useState } from "react";
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  Avatar,
-  Button,
-  MenuItem,
-  Grid,
-} from "@mui/material/";
+import { AppBar, Box, Toolbar, IconButton, Button, Grid } from "@mui/material/";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -20,22 +9,13 @@ import MobileDrawer from "./MobileDrawer";
 import { createTheme, ThemeProvider } from "@mui/material/styles/";
 import DesktopDrawer from "./DesktopDrawer";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 const theme = createTheme({
   components: {
     MuiAppBar: {
       styleOverrides: {
         root: {
           backgroundColor: "#ffffff",
-          padding: "0 1rem",
-        },
-      },
-    },
-    Typography: {
-      styleOverrides: {
-        root: {
-          color: "#333333",
+          paddingLeft: "2rem",
         },
       },
     },
@@ -70,7 +50,6 @@ const theme = createTheme({
 const NavigationBar = () => {
   const [showMobileDrawer, setShowMobileDrawer] = useState(false);
   const [showDesktopDrawer, setShowDesktopDrawer] = useState(false);
-  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = () => {
     setShowMobileDrawer(!showMobileDrawer);
@@ -84,48 +63,16 @@ const NavigationBar = () => {
     setShowDesktopDrawer(!showDesktopDrawer);
   };
 
-  const handleCloseDesktopNavMenu = () => {
-    setShowMobileDrawer(false);
-  };
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <AppBar className="app-bar" position="static">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           <Box sx={{ flexGrow: 0 }}>
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Okuro Logo" src={Logo} />
-            </IconButton>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <img
+              src={Logo}
+              alt="Okuro Logo"
+              style={{ width: "2.5rem", height: "2.5rem" }}
+            />
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -134,7 +81,12 @@ const NavigationBar = () => {
               color="primary"
               onClick={handleOpenDesktopNavMenu}
               sx={{ my: 2, display: "block" }}
-              style={{ display: "flex" }}
+              style={{
+                display: "flex",
+                borderBottom: `${
+                  showDesktopDrawer ? "2px solid black" : "none"
+                }`,
+              }}
             >
               Why Okura?
               {showDesktopDrawer ? (
@@ -183,13 +135,16 @@ const NavigationBar = () => {
             </Button>
           </Box>
 
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box style={{ backgroundColor: "#DFDFDE", width: "150%" }}>
-              <Box>
-                <Button variant="contained" color="primary">
-                  Get Started
-                </Button>
-              </Box>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <Box style={{ marginRight: "2rem" }}>
+              <Button variant="contained" color="primary">
+                Get Started
+              </Button>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -204,27 +159,25 @@ const NavigationBar = () => {
             </Box>
           </Box>
         </Toolbar>
+        {showDesktopDrawer ? (
+          <Box sx={{ display: { xs: "none", md: "block" } }}>
+            <DesktopDrawer />
+          </Box>
+        ) : null}
       </AppBar>
-      <Grid style={{ position: "relative" }}>
+
+      <Grid
+        style={{ position: "relative" }}
+        sx={{ display: { xs: "block", md: "none" } }}
+      >
         <Grid
           style={{
-            height: "100vh",
             width: "100%",
             display: `${showMobileDrawer ? "block" : "none"}`,
             position: "absolute",
           }}
         >
           <MobileDrawer />
-        </Grid>
-        <Grid
-          style={{
-            height: "100vh",
-            width: "100%",
-            display: `${showDesktopDrawer ? "block" : "none"}`,
-            position: "absolute",
-          }}
-        >
-          <DesktopDrawer />
         </Grid>
       </Grid>
     </ThemeProvider>

@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Accordion,
-  Typography,
-  AccordionSummary,
-  AccordionDetails,
-  Divider,
-  Box,
-  Grid,
-} from "@mui/material/";
+import { Typography, Divider, Box, Grid } from "@mui/material/";
 import { createTheme, ThemeProvider } from "@mui/material/styles/";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 
@@ -17,13 +9,6 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#ffffff",
-        },
-      },
-    },
-    Typography: {
-      styleOverrides: {
-        root: {
-          color: "#333333",
         },
       },
     },
@@ -37,7 +22,7 @@ const DesktopDrawer = () => {
         style={{
           width: "100%",
           backgroundColor: "#ffffff",
-          boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+          color: "#000000",
         }}
       >
         <Grid display="grid" gridTemplateColumns="repeat(3, 1fr)">
@@ -48,7 +33,10 @@ const DesktopDrawer = () => {
             <Divider style={{ margin: "0.5rem 4rem 1rem 0" }} />
 
             <Box style={{ marginBottom: "1rem" }}>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Overview
               </Typography>
               <Typography variant="subtitle2">
@@ -57,7 +45,10 @@ const DesktopDrawer = () => {
             </Box>
 
             <Box style={{ marginBottom: "1rem" }}>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Watch Demo Videos
               </Typography>
               <Typography variant="subtitle2">
@@ -66,7 +57,10 @@ const DesktopDrawer = () => {
             </Box>
 
             <Box style={{ marginBottom: "1rem" }}>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 See How It Works
               </Typography>
               <Typography variant="subtitle2">
@@ -75,7 +69,10 @@ const DesktopDrawer = () => {
             </Box>
 
             <Box style={{ marginBottom: "1.5rem" }}>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Visit Atlassian Marketplace
               </Typography>
               <Typography variant="subtitle2">
@@ -93,31 +90,58 @@ const DesktopDrawer = () => {
               gridTemplateColumns="repeat(2, 1fr)"
               style={{ rowGap: "1rem" }}
             >
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Company Level
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Engineering Teams
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Product Teams
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Marketing Teams
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Design Teams
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Sales Teams
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Operations Teams
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 Customer Service Teams
               </Typography>
-              <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+              <Typography
+                variant="subtitle1"
+                style={{ fontWeight: "bold", cursor: "pointer" }}
+              >
                 HR Teams
               </Typography>
               <Typography
@@ -127,6 +151,7 @@ const DesktopDrawer = () => {
                   display: "flex",
                   wrap: "nowrap",
                   alignItems: "center",
+                  cursor: "pointer",
                 }}
               >
                 See all examples
@@ -141,17 +166,28 @@ const DesktopDrawer = () => {
             <Divider style={{ margin: "0.5rem 4rem 1rem 0" }} />
             <Typography
               variant="subtitle1"
-              style={{ fontWeight: "bold", marginBottom: "2.5rem" }}
+              style={{
+                fontWeight: "bold",
+                cursor: "pointer",
+                marginBottom: "2.5rem",
+              }}
             >
               Agile OKR Guide
             </Typography>
             <Typography
               variant="subtitle1"
-              style={{ fontWeight: "bold", marginBottom: "2.5rem" }}
+              style={{
+                fontWeight: "bold",
+                cursor: "pointer",
+                marginBottom: "2.5rem",
+              }}
             >
               Implementing OKRs for Agile Teams in Jira
             </Typography>
-            <Typography variant="subtitle1" style={{ fontWeight: "bold" }}>
+            <Typography
+              variant="subtitle1"
+              style={{ fontWeight: "bold", cursor: "pointer" }}
+            >
               Advanced JQL Magic Guide
             </Typography>
           </Grid>
