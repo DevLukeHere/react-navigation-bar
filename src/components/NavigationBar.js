@@ -29,6 +29,8 @@ const theme = createTheme({
             textTransform: "none",
             fontWeight: "bold",
             padding: "0.5rem",
+            zIndex: "1",
+            minWidth: "150px",
             ":hover": {
               backgroundColor: "#000000",
             },
@@ -40,6 +42,7 @@ const theme = createTheme({
             textTransform: "none",
             fontWeight: "bold",
             color: "#333333",
+            borderRadius: "0",
           },
         },
       ],
@@ -75,7 +78,10 @@ const NavigationBar = () => {
             />
           </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+            style={{ marginLeft: "1rem" }}
+          >
             <Button
               variant="navbar"
               color="primary"
@@ -139,9 +145,10 @@ const NavigationBar = () => {
             sx={{
               display: "flex",
               alignItems: "center",
+              paddingRight: "2rem",
             }}
           >
-            <Box style={{ marginRight: "2rem" }}>
+            <Box>
               <Button variant="contained" color="primary">
                 Get Started
               </Button>

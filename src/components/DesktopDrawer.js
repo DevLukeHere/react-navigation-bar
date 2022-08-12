@@ -12,6 +12,40 @@ const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      variants: [
+        {
+          props: {
+            hover: "maroon",
+          },
+          style: {
+            ":hover": {
+              color: "#d0004f",
+            },
+          },
+        },
+        {
+          props: {
+            hover: "teal",
+          },
+          style: {
+            ":hover": {
+              color: "#00a0aa",
+            },
+          },
+        },
+        {
+          props: {
+            hover: "yellow",
+          },
+          style: {
+            ":hover": {
+              color: "#fabe2c",
+            },
+          },
+        },
+      ],
+    },
   },
 });
 
@@ -23,6 +57,7 @@ const DesktopDrawer = () => {
           width: "100%",
           backgroundColor: "#ffffff",
           color: "#000000",
+          paddingTop: "2rem",
         }}
       >
         <Grid display="grid" gridTemplateColumns="repeat(3, 1fr)">
@@ -35,6 +70,7 @@ const DesktopDrawer = () => {
             <Box style={{ marginBottom: "1rem" }}>
               <Typography
                 variant="subtitle1"
+                hover="teal"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Overview
@@ -47,6 +83,7 @@ const DesktopDrawer = () => {
             <Box style={{ marginBottom: "1rem" }}>
               <Typography
                 variant="subtitle1"
+                hover="teal"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Watch Demo Videos
@@ -59,6 +96,7 @@ const DesktopDrawer = () => {
             <Box style={{ marginBottom: "1rem" }}>
               <Typography
                 variant="subtitle1"
+                hover="teal"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 See How It Works
@@ -71,6 +109,7 @@ const DesktopDrawer = () => {
             <Box style={{ marginBottom: "1.5rem" }}>
               <Typography
                 variant="subtitle1"
+                hover="teal"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Visit Atlassian Marketplace
@@ -92,60 +131,70 @@ const DesktopDrawer = () => {
             >
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Company Level
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Engineering Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Product Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Marketing Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Design Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Sales Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Operations Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 Customer Service Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{ fontWeight: "bold", cursor: "pointer" }}
               >
                 HR Teams
               </Typography>
               <Typography
                 variant="subtitle1"
+                hover="maroon"
                 style={{
                   fontWeight: "bold",
                   display: "flex",
@@ -159,13 +208,31 @@ const DesktopDrawer = () => {
               </Typography>
             </Grid>
           </Grid>
-          <Grid style={{ backgroundColor: "#DFDFDE", padding: "0 1rem" }}>
+          <Grid
+            style={{
+              backgroundColor: "#DFDFDE",
+              padding: "0 2rem",
+              position: "relative",
+            }}
+          >
+            <Grid
+              style={{
+                backgroundColor: "#DFDFDE",
+                width: "100%",
+                height: "40%",
+                position: "absolute",
+                top: "-40%",
+                left: "0",
+                zIndex: "0",
+              }}
+            ></Grid>
             <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
               GUIDES
             </Typography>
             <Divider style={{ margin: "0.5rem 4rem 1rem 0" }} />
             <Typography
               variant="subtitle1"
+              hover="yellow"
               style={{
                 fontWeight: "bold",
                 cursor: "pointer",
@@ -176,6 +243,7 @@ const DesktopDrawer = () => {
             </Typography>
             <Typography
               variant="subtitle1"
+              hover="yellow"
               style={{
                 fontWeight: "bold",
                 cursor: "pointer",
@@ -186,6 +254,7 @@ const DesktopDrawer = () => {
             </Typography>
             <Typography
               variant="subtitle1"
+              hover="yellow"
               style={{ fontWeight: "bold", cursor: "pointer" }}
             >
               Advanced JQL Magic Guide
