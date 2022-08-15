@@ -21,12 +21,79 @@ const theme = createTheme({
         },
       },
     },
-    Typography: {
+    MuiTypography: {
       styleOverrides: {
         root: {
           color: "#333333",
+          fontFamily: `'Source Sans Pro', sans-serif`,
         },
       },
+      variants: [
+        {
+          props: { title_text: "bold" },
+          style: {
+            fontWeight: "700",
+          },
+        },
+        {
+          props: { content_text: "end" },
+          style: {
+            marginBottom: "1rem",
+          },
+        },
+        {
+          props: { text_type: "examples" },
+          style: {
+            fontWeight: "700",
+            display: "flex",
+            wrap: "nowrap",
+          },
+        },
+      ],
+    },
+    AccordionDetails: {
+      variants: [
+        {
+          props: { padding_primary: "true" },
+          style: {
+            padding: "0.5rem 1rem 0 1rem",
+          },
+        },
+      ],
+    },
+    MuiDivider: {
+      variants: [
+        {
+          props: { divider: "primary" },
+          style: {
+            margin: "0.5rem 0 1rem 0",
+          },
+        },
+        {
+          props: { divider: "secondary" },
+          style: {
+            margin: "0.5rem 2.5rem 1rem 0",
+          },
+        },
+      ],
+    },
+    MuiGrid: {
+      variants: [
+        {
+          props: { grid: "primary" },
+          style: {
+            rowGap: "1rem",
+            marginBottom: "1.5rem",
+          },
+        },
+        {
+          props: { grid: "secondary" },
+          style: {
+            backgroundColor: "#DFDFDE",
+            padding: "1.5rem 1rem",
+          },
+        },
+      ],
     },
   },
 });
@@ -47,15 +114,15 @@ const MobileDrawer = () => {
           id="accordion-row1"
           aria-controls="accordion-row1"
         >
-          <Typography style={{ fontWeight: "bold" }}>Why Okuro?</Typography>
+          <Typography title_text="bold">Why Okuro?</Typography>
         </AccordionSummary>
-        <AccordionDetails style={{ padding: "0.5rem 1rem 0 1rem" }}>
-          <Typography variant="caption" style={{ fontWeight: "bold" }}>
+        <AccordionDetails padding_primary="true">
+          <Typography variant="caption" title_text="bold">
             WHY OKURO
           </Typography>
-          <Divider style={{ margin: "0.5rem 0 1rem 0" }} />
-          <Box style={{ marginBottom: "1rem" }}>
-            <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+          <Divider divider="primary" />
+          <Box sx={{ marginBottom: "1rem" }}>
+            <Typography variant="subtitle2" title_text="bold">
               Overview
             </Typography>
             <Typography variant="caption">
@@ -63,8 +130,8 @@ const MobileDrawer = () => {
             </Typography>
           </Box>
 
-          <Box style={{ marginBottom: "1rem" }}>
-            <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+          <Box sx={{ marginBottom: "1rem" }}>
+            <Typography variant="subtitle2" title_text="bold">
               Watch Demo Videos
             </Typography>
             <Typography variant="caption">
@@ -72,15 +139,15 @@ const MobileDrawer = () => {
             </Typography>
           </Box>
 
-          <Box style={{ marginBottom: "1rem" }}>
-            <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+          <Box sx={{ marginBottom: "1rem" }}>
+            <Typography variant="subtitle2" title_text="bold">
               See How It Works
             </Typography>
             <Typography variant="caption">Schedule a live demo now.</Typography>
           </Box>
 
-          <Box style={{ marginBottom: "1.5rem" }}>
-            <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+          <Box sx={{ marginBottom: "1.5rem" }}>
+            <Typography variant="subtitle2" title_text="bold">
               Visit Atlassian Marketplace
             </Typography>
             <Typography variant="caption">
@@ -88,66 +155,63 @@ const MobileDrawer = () => {
             </Typography>
           </Box>
 
-          <Typography variant="caption" style={{ fontWeight: "bold" }}>
+          <Typography variant="caption" title_text="bold">
             OKR EXAMPLES
           </Typography>
-          <Divider style={{ margin: "0.5rem 0 1rem 0" }} />
+          <Divider divider="primary" />
 
           <Grid
             display="grid"
             gridTemplateColumns="repeat(2, 1fr)"
-            style={{ rowGap: "1rem", marginBottom: "1.5rem" }}
+            grid="primary"
           >
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Company Level
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Engineering Teams
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Product Teams
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Marketing Teams
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Design Teams
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Sales Teams
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Operations Teams
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 Customer Service Teams
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+              <Typography variant="subtitle2" title_text="bold">
                 HR Teams
               </Typography>
             </Box>
             <Box>
-              <Typography
-                variant="subtitle2"
-                style={{ fontWeight: "bold", display: "flex", wrap: "nowrap" }}
-              >
+              <Typography variant="subtitle2" text_type="examples">
                 See all examples
                 <ArrowRightAltIcon />
               </Typography>
@@ -155,24 +219,26 @@ const MobileDrawer = () => {
           </Grid>
         </AccordionDetails>
         <AccordionDetails style={{ padding: "0" }}>
-          <Grid style={{ backgroundColor: "#DFDFDE", padding: "1.5rem 1rem" }}>
-            <Typography variant="caption" style={{ fontWeight: "bold" }}>
+          <Grid grid="secondary">
+            <Typography variant="caption" title_text="bold">
               GUIDES
             </Typography>
-            <Divider style={{ margin: "0.5rem 2.5rem 1rem 0" }} />
+            <Divider divider="secondary" />
             <Typography
               variant="subtitle2"
-              style={{ fontWeight: "bold", marginBottom: "1rem" }}
+              content_text="end"
+              title_text="bold"
             >
               Agile OKR Guide
             </Typography>
             <Typography
               variant="subtitle2"
-              style={{ fontWeight: "bold", marginBottom: "1rem" }}
+              content_text="end"
+              title_text="bold"
             >
               Implementing OKRs for Agile Teams in Jira
             </Typography>
-            <Typography variant="subtitle2" style={{ fontWeight: "bold" }}>
+            <Typography variant="subtitle2" title_text="bold">
               Advanced JQL Magic Guide
             </Typography>
           </Grid>
@@ -184,7 +250,7 @@ const MobileDrawer = () => {
           id="accordion-row2"
           aria-controls="accordion-row2"
         >
-          <Typography style={{ fontWeight: "bold" }}>Features</Typography>
+          <Typography title_text="bold">Features</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography variant="subtitle2">
@@ -201,7 +267,7 @@ const MobileDrawer = () => {
           id="accordion-row3"
           aria-controls="accordion-row3"
         >
-          <Typography style={{ fontWeight: "bold" }}>Resources</Typography>
+          <Typography title_text="bold">Resources</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography variant="subtitle2">
@@ -214,12 +280,12 @@ const MobileDrawer = () => {
       </Accordion>
       <Accordion disableGutters>
         <AccordionSummary id="accordion-row4" aria-controls="accordion-row4">
-          <Typography style={{ fontWeight: "bold" }}>Enterprise</Typography>
+          <Typography title_text="bold">Enterprise</Typography>
         </AccordionSummary>
       </Accordion>
       <Accordion disableGutters>
         <AccordionSummary id="accordion-row5" aria-controls="accordion-row5">
-          <Typography style={{ fontWeight: "bold" }}>Pricing</Typography>
+          <Typography title_text="bold">Pricing</Typography>
         </AccordionSummary>
       </Accordion>
     </ThemeProvider>

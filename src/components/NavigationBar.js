@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { AppBar, Box, Toolbar, IconButton, Button, Grid } from "@mui/material/";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Button,
+  Grid,
+  Avatar,
+} from "@mui/material/";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
@@ -24,6 +32,7 @@ const theme = createTheme({
         {
           props: { variant: "contained", color: "primary" },
           style: {
+            fontFamily: `'Source Sans Pro', sans-serif`,
             backgroundColor: "#000000",
             borderRadius: "0.75rem",
             textTransform: "none",
@@ -32,17 +41,47 @@ const theme = createTheme({
             zIndex: "1",
             minWidth: "150px",
             ":hover": {
-              backgroundColor: "#000000",
+              backgroundColor: "#defffb",
+              color: "#000000",
             },
           },
         },
         {
           props: { variant: "navbar", color: "primary" },
           style: {
+            fontFamily: `'Source Sans Pro', sans-serif`,
             textTransform: "none",
             fontWeight: "bold",
             color: "#333333",
             borderRadius: "0",
+          },
+        },
+      ],
+    },
+    MuiButtonBase: {
+      variants: [
+        {
+          props: { button_display: "flex" },
+          style: {
+            display: "flex",
+          },
+        },
+      ],
+    },
+    MuiGrid: {
+      variants: [
+        {
+          props: { position_relative: "true" },
+          style: {
+            position: "relative",
+          },
+        },
+        {
+          props: { mobile_drawer: "true" },
+          style: {
+            width: "100%",
+            // display: showMobileDrawer ? "block" : "none",
+            position: "absolute",
           },
         },
       ],
@@ -71,23 +110,22 @@ const NavigationBar = () => {
       <AppBar className="app-bar" position="static">
         <Toolbar disableGutters sx={{ justifyContent: "space-between" }}>
           <Box sx={{ flexGrow: 0 }}>
-            <img
-              src={Logo}
-              alt="Okuro Logo"
-              style={{ width: "2.5rem", height: "2.5rem" }}
-            />
+            <Avatar variant="square" src={Logo} alt="Okuro Logo"></Avatar>
           </Box>
 
           <Box
-            sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
-            style={{ marginLeft: "1rem" }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              marginLeft: "1rem",
+            }}
           >
             <Button
               variant="navbar"
               color="primary"
               onClick={handleOpenDesktopNavMenu}
-              sx={{ my: 2, display: "block" }}
-              style={{
+              sx={{
+                my: 2,
                 display: "flex",
                 borderBottom: `${
                   showDesktopDrawer ? "2px solid black" : "none"
@@ -106,7 +144,7 @@ const NavigationBar = () => {
               color="primary"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, display: "block" }}
-              style={{ display: "flex" }}
+              button_display="flex"
             >
               Features
               <KeyboardArrowDownIcon />
@@ -116,7 +154,7 @@ const NavigationBar = () => {
               color="primary"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, display: "block" }}
-              style={{ display: "flex" }}
+              button_display="flex"
             >
               Resources
               <KeyboardArrowDownIcon />
@@ -126,7 +164,7 @@ const NavigationBar = () => {
               color="primary"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, display: "block" }}
-              style={{ display: "flex" }}
+              button_display="flex"
             >
               Enterprise
             </Button>
@@ -135,7 +173,7 @@ const NavigationBar = () => {
               color="primary"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, display: "block" }}
-              style={{ display: "flex" }}
+              button_display="flex"
             >
               Pricing
             </Button>
@@ -174,16 +212,10 @@ const NavigationBar = () => {
       </AppBar>
 
       <Grid
-        style={{ position: "relative" }}
+        position_relative="true"
         sx={{ display: { xs: "block", md: "none" } }}
       >
-        <Grid
-          style={{
-            width: "100%",
-            display: `${showMobileDrawer ? "block" : "none"}`,
-            position: "absolute",
-          }}
-        >
+        <Grid mobile_drawer="true">
           <MobileDrawer />
         </Grid>
       </Grid>
