@@ -1,13 +1,15 @@
 {
   "files": {
-    "main.css": "/react-navigation-bar/static/css/main.0001f037.css",
-    "main.js": "/react-navigation-bar/static/js/main.77658ccc.js",
+    "main.css": "/react-navigation-bar/static/css/main.f571657d.css",
+    "main.js": "/react-navigation-bar/static/js/main.469a5ff1.js",
     "index.html": "/react-navigation-bar/index.html",
-    "main.0001f037.css.map": "/react-navigation-bar/static/css/main.0001f037.css.map",
-    "main.77658ccc.js.map": "/react-navigation-bar/static/js/main.77658ccc.js.map"
+    "static/media/ui-text-link-arrow.svg": "/react-navigation-bar/static/media/ui-text-link-arrow.1d746170d1c31acd509a19b6825e35f8.svg",
+    "static/media/ui-down-arrow.svg": "/react-navigation-bar/static/media/ui-down-arrow.1fbc6bc254f8b253cf8755049d4151ff.svg",
+    "main.f571657d.css.map": "/react-navigation-bar/static/css/main.f571657d.css.map",
+    "main.469a5ff1.js.map": "/react-navigation-bar/static/js/main.469a5ff1.js.map"
   },
   "entrypoints": [
-    "static/css/main.0001f037.css",
-    "static/js/main.77658ccc.js"
+    "static/css/main.f571657d.css",
+    "static/js/main.469a5ff1.js"
   ]
 }

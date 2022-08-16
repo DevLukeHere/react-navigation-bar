@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.f571657d.css","mappings":"AAAA,KAGE,kCAAmC,CACnC,iCAAkC,CAFlC,sCAA0C,CAD1C,QAIF","sources":["index.css"],"sourcesContent":["body {\n  margin: 0;\n  font-family: 'Source Sans Pro', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n"],"names":[],"sourceRoot":""}
