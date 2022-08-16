@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Divider, Box, Grid, Avatar } from "@mui/material/";
 import { createTheme, ThemeProvider } from "@mui/material/styles/";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import ArrowRight from "../assets/ui-text-link-arrow.svg";
 
 const theme = createTheme({
