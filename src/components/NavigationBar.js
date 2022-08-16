@@ -10,9 +10,8 @@ import {
 } from "@mui/material/";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Logo from "../assets/logo-192x192.png";
+import ArrowDown from "../assets/ui-down-arrow.svg";
 import MobileDrawer from "./MobileDrawer";
 import { createTheme, ThemeProvider } from "@mui/material/styles/";
 import DesktopDrawer from "./DesktopDrawer";
@@ -28,6 +27,11 @@ const theme = createTheme({
       },
     },
     MuiButton: {
+      styleOverrides: {
+        root: {
+          display: "flex",
+        },
+      },
       variants: [
         {
           props: { variant: "contained", color: "primary" },
@@ -58,30 +62,12 @@ const theme = createTheme({
         },
       ],
     },
-    MuiButtonBase: {
-      variants: [
-        {
-          props: { button_display: "flex" },
-          style: {
-            display: "flex",
-          },
-        },
-      ],
-    },
     MuiGrid: {
       variants: [
         {
           props: { position_relative: "true" },
           style: {
             position: "relative",
-          },
-        },
-        {
-          props: { mobile_drawer: "true" },
-          style: {
-            width: "100%",
-            // display: showMobileDrawer ? "block" : "none",
-            position: "absolute",
           },
         },
       ],
@@ -125,7 +111,6 @@ const NavigationBar = () => {
               color="primary"
               onClick={handleOpenDesktopNavMenu}
               sx={{
-                my: 2,
                 display: "flex",
                 borderBottom: `${
                   showDesktopDrawer ? "2px solid black" : "none"
@@ -134,37 +119,67 @@ const NavigationBar = () => {
             >
               Why Okura?
               {showDesktopDrawer ? (
-                <KeyboardArrowUpIcon />
+                <Avatar
+                  sx={{
+                    width: "0.75rem",
+                    height: "0.75rem",
+                    marginLeft: "0.5rem",
+                    transform: "rotate(180deg)",
+                  }}
+                  src={ArrowDown}
+                  alt="arrow down"
+                />
               ) : (
-                <KeyboardArrowDownIcon />
+                <Avatar
+                  sx={{
+                    width: "0.75rem",
+                    height: "0.75rem",
+                    marginLeft: "0.5rem",
+                  }}
+                  src={ArrowDown}
+                  alt="arrow down"
+                />
               )}
             </Button>
             <Button
               variant="navbar"
               color="primary"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, display: "block" }}
-              button_display="flex"
+              sx={{ display: "flex" }}
             >
               Features
-              <KeyboardArrowDownIcon />
+              <Avatar
+                sx={{
+                  width: "0.75rem",
+                  height: "0.75rem",
+                  marginLeft: "0.5rem",
+                }}
+                src={ArrowDown}
+                alt="arrow down"
+              />
             </Button>
             <Button
               variant="navbar"
               color="primary"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, display: "block" }}
-              button_display="flex"
+              sx={{ display: "flex" }}
             >
               Resources
-              <KeyboardArrowDownIcon />
+              <Avatar
+                sx={{
+                  width: "0.75rem",
+                  height: "0.75rem",
+                  marginLeft: "0.5rem",
+                }}
+                src={ArrowDown}
+                alt="arrow down"
+              />
             </Button>
             <Button
               variant="navbar"
               color="primary"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, display: "block" }}
-              button_display="flex"
+              sx={{ display: "flex" }}
             >
               Enterprise
             </Button>
@@ -172,8 +187,7 @@ const NavigationBar = () => {
               variant="navbar"
               color="primary"
               onClick={handleCloseNavMenu}
-              sx={{ my: 2, display: "block" }}
-              button_display="flex"
+              sx={{ display: "flex" }}
             >
               Pricing
             </Button>
@@ -215,7 +229,7 @@ const NavigationBar = () => {
         position_relative="true"
         sx={{ display: { xs: "block", md: "none" } }}
       >
-        <Grid mobile_drawer="true">
+        <Grid sx={{ display: `${showMobileDrawer ? "block" : "none"}` }}>
           <MobileDrawer />
         </Grid>
       </Grid>

@@ -1,7 +1,8 @@
 import React from "react";
-import { Typography, Divider, Box, Grid } from "@mui/material/";
+import { Typography, Divider, Box, Grid, Avatar } from "@mui/material/";
 import { createTheme, ThemeProvider } from "@mui/material/styles/";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
+import ArrowRight from "../assets/ui-text-link-arrow.svg";
 
 const theme = createTheme({
   components: {
@@ -118,20 +119,32 @@ const theme = createTheme({
         },
         {
           props: {
-            title: "bold",
-          },
-          style: {
-            fontWeight: "700",
-          },
-        },
-        {
-          props: {
             cursor: "true",
           },
           style: {
             fontWeight: "700",
             cursor: "pointer",
             marginBottom: "2.5rem",
+          },
+        },
+        {
+          props: { font_weight: "regular" },
+          style: {
+            fontWeight: "400",
+          },
+        },
+        {
+          props: { font_weight: "semiBold" },
+          style: {
+            fontWeight: "600",
+          },
+        },
+        {
+          props: {
+            font_weight: "bold",
+          },
+          style: {
+            fontWeight: "700",
           },
         },
       ],
@@ -145,7 +158,7 @@ const DesktopDrawer = () => {
       <Grid grid_type="main">
         <Grid display="grid" gridTemplateColumns="repeat(3, 1fr)">
           <Grid>
-            <Typography variant="subtitle2" title="bold">
+            <Typography variant="subtitle2" font_weight="semiBold">
               WHY OKURO
             </Typography>
             <Divider />
@@ -154,7 +167,7 @@ const DesktopDrawer = () => {
               <Typography variant="subtitle1" hover="teal">
                 Overview
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant="subtitle2" font_weight="regular">
                 Everything you need to know about Okuro.
               </Typography>
             </Box>
@@ -163,7 +176,7 @@ const DesktopDrawer = () => {
               <Typography variant="subtitle1" hover="teal">
                 Watch Demo Videos
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant="subtitle2" font_weight="regular">
                 Get a preview of the app in action.
               </Typography>
             </Box>
@@ -172,7 +185,7 @@ const DesktopDrawer = () => {
               <Typography variant="subtitle1" hover="teal">
                 See How It Works
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant="subtitle2" font_weight="regular">
                 Schedule a live demo now.
               </Typography>
             </Box>
@@ -181,13 +194,13 @@ const DesktopDrawer = () => {
               <Typography variant="subtitle1" hover="teal">
                 Visit Atlassian Marketplace
               </Typography>
-              <Typography variant="subtitle2">
+              <Typography variant="subtitle2" font_weight="regular">
                 Discover more reviews, pricing and more.
               </Typography>
             </Box>
           </Grid>
           <Grid>
-            <Typography variant="subtitle2" title="bold">
+            <Typography variant="subtitle2" font_weight="semiBold">
               OKR EXAMPLES
             </Typography>
             <Divider />
@@ -225,13 +238,17 @@ const DesktopDrawer = () => {
               </Typography>
               <Typography variant="subtitle1" hover="maroon" arrow="true">
                 See all examples
-                <ArrowRightAltIcon />
+                <Avatar
+                  sx={{ width: "1rem", height: "1rem", marginLeft: "0.5rem" }}
+                  src={ArrowRight}
+                  alt="arrow right"
+                />
               </Typography>
             </Grid>
           </Grid>
           <Grid grid_type="secondary">
             <Grid grid_type="tertiary"></Grid>
-            <Typography variant="subtitle2" title="bold">
+            <Typography variant="subtitle2" font_weight="semiBold">
               GUIDES
             </Typography>
             <Divider />
